@@ -8,8 +8,8 @@ addpath(genpath('/Volumes/fb-lip/Projects/Naftali/data/analysis/PLS/tools/NIfTI_
 addpath(genpath('/Volumes/fb-lip/Projects/Naftali/data/analysis/PLS/tools/preprocessing_tools'))
 
 %% overlapping and divergent regions in change-change versus cross-sectional models
-img1=S_load_nii_2d('SD_diff_fMRIrest_N76_Mot_noDiab_COG_allChange_logAge_win1664_BfMRIbsr_lv1_thr27_cluster25.nii.gz');
-img2=S_load_nii_2d('SD_w1w2_fMRIrest_N76_Mot_noDiab_COG_all_Age_BfMRIbsr_lv1_thr27_cluster25.nii.gz');
+img1=S_load_nii_2d('SD_diff_fMRIrest_N74_Mot_noDiab_COG_latentChange_Age_BfMRIbsr_lv1_thr3_cluster25.nii.gz');
+img2=S_load_nii_2d('SD_w1w2_fMRIrest_N74_Mot_noDiab_latentCOG_all_Age_BfMRIbsr_lv1_thr3_cluster25.nii.gz');
 
 %get overlap
 img_over=zeros(size(img1));
@@ -27,9 +27,9 @@ img_all2(img_diff1_ind)=2;
 img_all2(img_diff2_ind)=3;
 
 %write output image
-nii=load_nii('SD_diff_fMRIrest_N76_Mot_noDiab_COG_allChange_logAge_win1664_BfMRIbsr_lv1_thr27_cluster25.nii.gz'); % reference image
+nii=load_nii('SD_diff_fMRIrest_N74_Mot_noDiab_COG_latentChange_Age_BfMRIbsr_lv1_thr3_cluster25.nii.gz'); % reference image
 nii.img=[];
 
 nii.img=img_all2;
-save_nii(nii,'SD_change_w1w2_overlap_diff2.nii.gz')
+save_nii(nii,'SD_latent_change_w1w2_overlap_diff2.nii.gz')
 nii.img=[];

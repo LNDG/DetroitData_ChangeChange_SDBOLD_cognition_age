@@ -28,7 +28,8 @@ close
 
 % save USC VSC correlation
 Cog_change_all_USCxVSC_corr=corr(result.vsc(:,1),result.usc(:,1));
-save([pn.root 'USCxVSC_latent_corrs.mat'],'Cog_change_all_USCxVSC_corr')
+Cog_change_all_USCxVSC_corr_rho=corr(result.vsc(:,1),result.usc(:,1),'type','Spearman');
+save([pn.root 'USCxVSC_latent_corrs.mat'],'Cog_change_all_USCxVSC_corr','Cog_change_all_USCxVSC_corr_rho')
 
 % plot indicator-brain score correlations
 % sort indicators
@@ -131,7 +132,8 @@ close
 
 % save USC VSC correlation
 Cog_w1_all_USCxVSC_corr=corr(result.vsc(1:74,1),result.usc(1:74,1));
-save([pn.root 'USCxVSC_latent_corrs.mat'],'Cog_w1_all_USCxVSC_corr','-append')
+Cog_w1_all_USCxVSC_corr_rho=corr(result.vsc(1:74,1),result.usc(1:74,1),'type','Spearman');
+save([pn.root 'USCxVSC_latent_corrs.mat'],'Cog_w1_all_USCxVSC_corr','Cog_w1_all_USCxVSC_corr_rho','-append')
 
 %w2
 a=scatter(result.vsc(75:end,1),result.usc(75:end,1),100,[0 0 1],'filled','MarkerEdgeColor',[1 1 1]) % reverse sign of brain scores to match positive plotting of saliences
@@ -155,7 +157,8 @@ close
 
 % save USC VSC correlation
 Cog_w2_all_USCxVSC_corr=corr(result.vsc(75:end,1),result.usc(75:end,1));
-save([pn.root 'USCxVSC_latent_corrs.mat'],'Cog_w2_all_USCxVSC_corr','-append')
+Cog_w2_all_USCxVSC_corr_rho=corr(result.vsc(75:end,1),result.usc(75:end,1),'type','Spearman');
+save([pn.root 'USCxVSC_latent_corrs.mat'],'Cog_w2_all_USCxVSC_corr','Cog_w2_all_USCxVSC_corr_rho','-append')
 
 % plot indicator-brain score correlations
 %split data by wave

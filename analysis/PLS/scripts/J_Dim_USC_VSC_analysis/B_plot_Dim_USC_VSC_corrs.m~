@@ -1,0 +1,62 @@
+% plot Dim to vsc and usc
+clear all
+
+cd /Volumes/fb-lip/Projects/Naftali/data/analysis/PLS/figures
+
+%load variables
+load('/Volumes/fb-lip/Projects/Naftali/data/analysis/PLS/SDBOLD/PCA_USC_VSC_analysis/USC_masked.mat')
+load('/Volumes/fb-lip/Projects/Naftali/data/analysis/Dimensionality/PCAdim_BSRmask/PCAdim_BSRmask.mat')
+load('/Volumes/fb-lip/Projects/Naftali/data/analysis/Dimensionality/PCAdim_BSRnonmask/PCAdim_BSRnonmask.mat')
+
+DimPerc_spatial_BSRnonmask_sam = DimPerc_spatial_BSRnonmask; % avoid naming conflict
+clear DimPerc_spatial_BSRnonmask
+
+load('/Volumes/fb-lip/Projects/Naftali/data/analysis/Dimensionality/PCAdim_BSRnonmask/PCAdim_BSRnonmask_small.mat')
+DimPerc_spatial_BSRnonmask_small = DimPerc_spatial_BSRnonmask;
+clear DimPerc_spatial_BSRnonmask
+
+load('/Volumes/fb-lip/Projects/Naftali/data/analysis/PLS/SDBOLD/SD_diff_fMRIrest_N74_Mot_noDiab_COG_latentChange_Age_BfMRIresult.mat','result')
+vsc=result.vsc;
+clear result
+
+%% plot
+
+a=scatter(DimPerc_spatial_BSRmask_change,BSRmask_usc,100,[0 0 1],'filled','MarkerEdgeColor',[1 1 1])
+a.MarkerFaceAlpha = .5;
+hline=refline;
+hline.LineWidth=1;
+hline.Color=[0 0 0];
+set(gca,'FontSize',18);
+
+xlabel('Δ Functional integration in BSR mask')
+ylabel('Brain score in BSR mask')
+
+set(gcf,'Units','Inches');
+pos = get(gcf,'Position');
+set(gcf,'PaperPositionMode','Auto','PaperUnits','Inches','PaperSize',[pos(3), pos(4)])
+print(gcf,'Dim_usc_BSRmask_corr.pdf','-dpdf','-r0')
+
+close
+
+a=scatter(DimPerc_spatial_BSRmask_change,vsc,100,[0 0 1],'filled','MarkerEdgeColor',[1 1 1])
+ylim([-7,6])
+a.MarkerFaceAlpha = .5;
+hline=refline;
+hline.LineWidth=1;
+hline.Color=[0 0 0];
+set(gca,'FontSize',18);
+
+xlabel('Δ Functional integration in BSR mask')
+ylabel('Cognition/age score')
+
+set(gcf,'Units','Inches');
+pos = get(gcf,'Position');
+set(gcf,'PaperPositionMode','Auto','PaperUnits','Inches','PaperSize',[pos(3), pos(4)])
+print(gcf,'Dim_vsc_BSRmask_corr.pdf','-dpdf','-r0')
+
+close
+
+% save Dim USC/VSC correlation
+DimxUSC_corr_rho=corr(DimPerc_spatial_BSRmask_change,BSRmask_usc,'type','Spearman');
+DimxVSC_corr_rho=corr(DimPerc_spatial_BSRmask_change,vsc,'type','Spearman');
+save('Dim_USC_VSC_corrs.mat','DimxUSC_corr_rho','DimxVSC_corr_rho')

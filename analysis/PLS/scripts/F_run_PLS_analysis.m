@@ -10,5 +10,5 @@ addpath(genpath('/Volumes/FB-LIP/Projects/Naftali/data/analysis/PLS/tools/Pls'))
 
 cd('/Volumes/FB-LIP/Projects/Naftali/data/analysis/PLS/SDBOLD')
 
-% path substituted manually for respective analysis
-batch_plsgui('/Volumes/FB-LIP/Projects/Naftali/data/analysis/PLS/SDBOLD/SD_diff_fMRIrest_N76_Mot_noDiab_COG_allChange_logAge_win1664_BfMRIanalysis.txt')
+batch_plsgui('/Volumes/fb-lip/Projects/Naftali/data/analysis/PLS/SDBOLD/SD_diff_fMRIrest_N74_Mot_noDiab_COG_latentChange_Age_BfMRIanalysis.txt')
+batch_plsgui('/Volumes/fb-lip/Projects/Naftali/data/analysis/PLS/SDBOLD/SD_w1w2_fMRIrest_N74_Mot_noDiab_latentCOG_all_Age_BfMRIanalysis.txt')
