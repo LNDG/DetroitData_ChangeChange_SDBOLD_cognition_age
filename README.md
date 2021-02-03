@@ -1,4 +1,4 @@
-# DetroitData_ChangeChange_SDBOLD_cognition_age
+# Garrett_etal_2021_CerebralCortex
 Code to reproduce results reported in "Losses in brain signal variability and functional integration are coupled with declines in cognitive performance over two years" by Douglas D. Garrett, Alexander Skowron, Steffen Wiegert, Janne Adolf, Cheryl L. Dahle, Ulman Lindenberger, & Naftali Raz [Paper DOI]. Please reference this paper if you intend to to reuse this code.
 
 ## Code execution
